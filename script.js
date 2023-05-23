@@ -19,13 +19,13 @@ function calculateDiscountedPrice(quantity, price, discountRules) {
 
   return total;
 }
-
+//Shipping Function
 function calculateShippingFee(quantity) {
   const packageCount = Math.ceil(quantity / 10);
   return packageCount * 5;
 }
 
-
+// Total Function
 function calculateTotal(quantity, price, discountRules, isGiftWrapped) {
   const subtotal = quantity * price;
   const discountAmount = calculateDiscountedPrice(quantity, price, discountRules) - subtotal;
@@ -54,7 +54,7 @@ function getProductDetails(productName) {
   return products[productName];
 }
 
-
+// Example usage
 const discountRules = [
   { ruleType: "flat_10_discount" },
   { ruleType: "bulk_5_discount" },
@@ -70,7 +70,7 @@ const isGiftWrapped = true; // Example value for testing
 
 const result = calculateTotal(quantity, productDetails.price, discountRules, isGiftWrapped);
 
-
+// Final Output
 console.log("Product:", productName);
 console.log("Quantity:", quantity);
 console.log("Total Amount:", quantity * productDetails.price);
